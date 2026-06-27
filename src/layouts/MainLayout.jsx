@@ -28,12 +28,7 @@ const MainLayout = () => {
               Contact
             </Link>
             <ThemeToggle />
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-black dark:hover:text-white transition-colors glass-panel px-3 py-2 md:px-4 md:py-2 rounded-full text-gray-800 dark:text-white whitespace-nowrap text-xs md:text-sm"
-            >
+            <a href="https://github.com/JK5426/ds-platform" target="_blank" rel="noreferrer" className="hover:text-black dark:hover:text-white transition-colors glass-panel px-3 py-2 md:px-4 md:py-2 rounded-full text-gray-800 dark:text-white whitespace-nowrap text-xs md:text-sm">
               Star on GitHub ⭐
             </a>
           </div>
