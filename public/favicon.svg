@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c084fc;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&amp;display=swap');
+      .text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 45px;
+        font-weight: 900;
+        fill: url(#grad);
+      }
+    </style>
+  </defs>
+  <rect width="100" height="100" fill="#09090b" rx="20"/>
+  <text x="50%" y="60%" text-anchor="middle" class="text">DS</text>
+  <rect x="30" y="75" width="30" height="5" fill="url(#grad)" />
+  <rect x="65" y="75" width="5" height="5" fill="#c084fc" />
+</svg>

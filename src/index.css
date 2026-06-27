@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;900&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-dark: #09090b;
+  --color-brand-light: #f8fafc;
+  --color-brand-neon: #c084fc;
+  --color-brand-lime: #bef264;
+  --color-brand-cyan: #22d3ee;
+  --color-brand-pink: #f472b6;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-gray-900 min-h-screen dark:bg-brand-dark dark:text-white transition-colors duration-300;
+  }
+  
+  .dark body {
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(192, 132, 252, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+  }
+  
+  body:not(.dark) {
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(192, 132, 252, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* 
+  ===========================================
+  PRECISE TYPOGRAPHY SYSTEM (User Requested)
+  ===========================================
+*/
+
+/* Explanation paragraphs Inter 16px / 400 lh 1.7 */
+.ds-prose p, .ds-prose ul, .ds-prose ol {
+  font-family: var(--font-sans);
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+/* Page & section headings Inter 24–32px / 700 lh 1.2 */
+.ds-prose h1, .ds-prose h2, .ds-prose h3, .ds-prose h4, .ds-prose h5, .ds-prose h6 {
+  font-family: var(--font-sans);
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+.ds-prose h1 { font-size: 32px !important; }
+.ds-prose h2 { font-size: 28px !important; margin-top: 2em; margin-bottom: 1em; }
+.ds-prose h3 { font-size: 24px !important; margin-top: 1.5em; margin-bottom: 0.8em; }
+
+/* Inline code mentions JetBrains Mono 14px bg tinted */
+.ds-prose :not(pre) > code {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  background-color: rgba(192, 132, 252, 0.15) !important;
+  color: #9333ea !important; /* purple-600 for contrast in light mode */
+  padding: 0.25em 0.4em !important;
+  border-radius: 6px !important;
+}
+.dark .ds-prose :not(pre) > code {
+  background-color: rgba(34, 211, 238, 0.15) !important;
+  color: #22d3ee !important; /* brand-cyan */
+}
+
+/* Avoid applying inline code styles to code block elements */
+.ds-prose pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+/* Code blocks JetBrains Mono 14px lh 1.6 */
+.ds-prose pre {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  padding: 1.25rem !important;
+  border-radius: 12px !important;
+}
+
+/* Complexity labels (O(n)) JetBrains Mono 13px accent color */
+.complexity-label, .ds-prose strong.complexity {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  color: var(--color-brand-neon) !important;
+}
+.dark .complexity-label, .dark .ds-prose strong.complexity {
+  color: var(--color-brand-cyan) !important;
+}
+
+/* Captions & footnotes Inter 13–14px / 400 muted color */
+.ds-prose figcaption, .ds-prose .footnote, .caption {
+  font-family: var(--font-sans);
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  color: #6b7280 !important;
+}
+.dark .ds-prose figcaption, .dark .ds-prose .footnote, .dark .caption {
+  color: #9ca3af !important;
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500 dark:from-brand-neon dark:to-brand-cyan;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/70 dark:bg-black/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-lg;
+  }
+  
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panBackground {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+
+
+
+
